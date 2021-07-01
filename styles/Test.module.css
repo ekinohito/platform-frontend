@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 40px 20px;
+    width: 580px;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+

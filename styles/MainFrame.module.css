@@ -10,4 +10,15 @@
 
 .buttons {
     margin-top: 32px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.container {
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

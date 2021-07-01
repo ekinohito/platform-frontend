@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import {TextboxStage} from "../utils/TextboxStage";
 import {CheckboxStage} from "../utils/CheckboxStage";
 import MainFrame from "../components/MainFrame";
+import styles from "../styles/Test.module.css"
 
 export default function Test() {
     const [selectedIndex, setSelectedIndex] = useState(0)
@@ -20,22 +21,24 @@ export default function Test() {
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)']),
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)'])
     ]
-    return <div>
-        <div style={{display: "flex"}}>
-            {stages.map((value, index) =>
-                <Button
-                    key={index}
-                    onClick={() => setAndUpdateIndex(index)}
-                    circle
-                    selected={index === selectedIndex}
-                    done={value.done}>
-                    {index + 1}
-                </Button>
-            )}
+    return <div className={styles.wrapper}>
+        <div className={styles.container}>
+            <div className={styles.buttonRow}>
+                {stages.map((value, index) =>
+                    <Button
+                        key={index}
+                        onClick={() => setAndUpdateIndex(index)}
+                        circle
+                        selected={index === selectedIndex}
+                        done={value.done}>
+                        {index + 1}
+                    </Button>
+                )}
+            </div>
+            <MainFrame stage={stages[selectedIndex]}
+                       index={selectedIndex}
+                       setIndex={setAndUpdateIndex}
+                       isLast={selectedIndex===stages.length - 1}/>
         </div>
-        <MainFrame stage={stages[selectedIndex]}
-                   index={selectedIndex}
-                   setIndex={setAndUpdateIndex}
-                   isLast={selectedIndex===stages.length - 1}/>
     </div>
 }
