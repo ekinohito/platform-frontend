@@ -29,6 +29,9 @@ export default function Test() {
                 </Button>
             )}
         </div>
-        <MainFrame stage={stages[selectedIndex]} index={selectedIndex} setIndex={setAndUpdateIndex}/>
+        <MainFrame stage={stages[selectedIndex]}
+                   index={selectedIndex}
+                   setIndex={setAndUpdateIndex}
+                   isLast={selectedIndex===stages.length - 1}/>
     </div>
 }
