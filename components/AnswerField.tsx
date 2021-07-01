@@ -9,7 +9,11 @@ export default function AnswerField(props: {stage: Stage}) {
     switch (true) {
         case stage instanceof TextboxStage:
             const textbox = stage as TextboxStage
-            return <textarea placeholder={textbox.hint} value={textbox.text} onChange={event => textbox.setText(event.target.value)}/>
+            return <div>
+                <textarea placeholder={textbox.hint}
+                             value={textbox.text}
+                             onChange={event => textbox.setText(event.target.value)}/>
+            </div>
         case stage instanceof CheckboxStage:
             const checkbox = stage as CheckboxStage
             return <div>
