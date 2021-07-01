@@ -10,4 +10,7 @@ export default class Stage {
         this.done = done_
         this.setDone = setDone
     }
+    get isFilled(): boolean {
+        return false
+    }
 }

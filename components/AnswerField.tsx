@@ -1,21 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 import Stage from "../utils/Stage";
 import {TextboxStage} from "../utils/TextboxStage";
 import {CheckboxStage} from "../utils/CheckboxStage";
+import styles from "../styles/AnswerField.module.css";
 
 export default function AnswerField(props: {stage: Stage}) {
     const {stage} = props
     switch (true) {
         case stage instanceof TextboxStage:
             const textbox = stage as TextboxStage
-            return <textarea placeholder={textbox.hint}/>
+            return <textarea placeholder={textbox.hint} value={textbox.text} onChange={event => textbox.setText(event.target.value)}/>
         case stage instanceof CheckboxStage:
             const checkbox = stage as CheckboxStage
-            return <ul>
+            return <div>
                     {checkbox.variants.map((value, index) =>
-                        <li key={index}>{value}</li>
+                        <div key={index}
+                             onClick={() => checkbox.setSelected(index)}
+                             className={`${styles.variant} ${index==checkbox.selected?styles.selected:''}`}>
+                            <span/>{value}
+                        </div>
                     )}
-                </ul>
+                </div>
         case true:
             throw "Not implemented"
     }

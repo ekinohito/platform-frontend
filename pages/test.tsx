@@ -6,21 +6,24 @@ import MainFrame from "../components/MainFrame";
 
 export default function Test() {
     const [selectedIndex, setSelectedIndex] = useState(0)
+    const setAndUpdateIndex = (index: number) => {
+        stages[selectedIndex].setDone(stages[selectedIndex].isFilled);
+        setSelectedIndex(index)
+    }
     const stages = [
         new TextboxStage('lorem?', 'ipsum'),
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)']),
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)']),
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)'])
     ]
-    console.log(typeof stages[selectedIndex])
     return <div>
         <div style={{display: "flex"}}>
             {stages.map((value, index) =>
-                <Button key={index} onClick={() => setSelectedIndex(index)} selected={index === selectedIndex} done={value.done}>
+                <Button key={index} onClick={() => setAndUpdateIndex(index)} selected={index === selectedIndex} done={value.done}>
                     {index + 1}
                 </Button>
             )}
         </div>
-        <MainFrame stage={stages[selectedIndex]} index={selectedIndex}/>
+        <MainFrame stage={stages[selectedIndex]} index={selectedIndex} setIndex={setAndUpdateIndex}/>
     </div>
 }
