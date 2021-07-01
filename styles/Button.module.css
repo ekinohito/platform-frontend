@@ -67,6 +67,6 @@
 
 .button:hover,
 .button:active {
-  color: #EF5C5C;
+  /*color: #EF5C5C;*/
   border-color: #EF5C5C;
 }
