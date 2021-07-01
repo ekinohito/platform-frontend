@@ -11,7 +11,11 @@ export default function Test() {
         setSelectedIndex(index)
     }
     const stages = [
-        new TextboxStage('lorem?', 'ipsum'),
+        new CheckboxStage('В одном из приведённых ниже слов ' +
+            'допущена ошибка в постановке ударения: НЕВЕРНО выделена буква, ' +
+            'обозначающая ударный гласный звук. Выберете это слово.?',
+            ['подОшва', 'избалОванный', 'непрАвы', 'дозвонИмся', 'оглянЁтся']),
+        new TextboxStage('Задание с ответом в виде текста', 'Впишите что-нибудь'),
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)']),
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)']),
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)'])
