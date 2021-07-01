@@ -19,7 +19,12 @@ export default function Test() {
     return <div>
         <div style={{display: "flex"}}>
             {stages.map((value, index) =>
-                <Button key={index} onClick={() => setAndUpdateIndex(index)} selected={index === selectedIndex} done={value.done}>
+                <Button
+                    key={index}
+                    onClick={() => setAndUpdateIndex(index)}
+                    circle
+                    selected={index === selectedIndex}
+                    done={value.done}>
                     {index + 1}
                 </Button>
             )}

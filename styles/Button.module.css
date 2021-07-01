@@ -2,49 +2,54 @@
   flex-direction: row;
 }
 
-.card {
+.button {
   margin: 0.2rem;
-  padding: 0.2em 0.7rem 0.7rem;
   text-align: center;
   text-decoration: none;
-  color: inherit;
-  font-size: 2rem;
-  border: 3px solid #85C4FF;
-  border-radius: 50%;
+  font-size: 18px;
+  background-color: white;
+  padding: 0.2em 0.7rem 0.7rem;
+  border: 3px solid #3694EB;
+  color: #3694EB;
   transition: color 0.15s ease, border-color 0.15s ease;
-  aspect-ratio: 1 / 1;
-  min-width: 4rem;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   cursor: pointer;
+  border-radius: 5px;
+  min-width: 150px;
+  height: 37px;
 }
 
-.card[variant=red-outline] {
-  border: 3px solid #FF8888;
+.button.circle {
+  border-color: #85C4FF;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  min-width: 40px;
+  height: 40px;
 }
 
-.card p {
+.button p {
   margin: 0;
   padding-bottom: 0.5rem;
 }
 
-.card.selected {
-  border: 3px solid #FF8888;
+.button.selected {
+  border-color: #FF8888;
 }
 
-.card.done {
+.button.done {
   color: white;
-  border: 3px solid #3694EB;
+  border-color: #3694EB;
   background-color: #3694EB;
 }
 
-.card.done.selected {
-  border: 3px solid #EF5C5C;
+.button.done.selected {
+  border-color: #EF5C5C;
   background-color: #EF5C5C;
 }
 
 
-.card:hover,
-.card:active {
+.button:hover,
+.button:active {
   color: #EF5C5C;
-  border: 3px solid #EF5C5C;
+  border-color: #EF5C5C;
 }
