@@ -6,8 +6,8 @@ import Button from "./Button";
 import styles from "../styles/MainFrame.module.css"
 
 export default function MainFrame(props: {stage: Stage, index: number,
-    setIndex: Dispatch<SetStateAction<number>>, isLast: boolean}) {
-    const {stage, index, setIndex, isLast} = props
+    setIndex: Dispatch<SetStateAction<number>>, isLast: boolean, sendAnswers: () => void, allDone}) {
+    const {stage, index, setIndex, isLast, sendAnswers, allDone} = props
     return <Frame className={styles.container}>
         <div>
             <h3 className={styles.header}>Задание {index + 1}</h3>
@@ -16,7 +16,11 @@ export default function MainFrame(props: {stage: Stage, index: number,
         </div>
         <div className={styles.buttons}>
             <Button onClick={() => setIndex(index - 1)} disabled={index === 0}>Назад</Button>
-            <Button onClick={() => setIndex(index + 1)} disabled={isLast} done>Далее</Button>
+            {
+                isLast?
+                    <Button onClick={sendAnswers} disabled={!allDone} done>Отправить</Button>:
+                    <Button onClick={() => setIndex(index + 1)} disabled={isLast} done>Далее</Button>
+            }
         </div>
     </Frame>
 }

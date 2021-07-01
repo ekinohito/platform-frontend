@@ -15,10 +15,12 @@
     width: 580px;
 }
 
-.button-row {
+.button_row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    height: 40px;
 }
 
 @media (max-width: 600px) {

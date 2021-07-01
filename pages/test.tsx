@@ -13,6 +13,9 @@ export default function Test() {
         setSelectedIndex(index)
 
     }
+    const sendAnswers = () => {
+        alert('answers sent!')
+    }
     const [time, setTime] = useState(0)
     useEffect(() => {
         const start = Date.now()
@@ -29,10 +32,11 @@ export default function Test() {
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)']),
         new CheckboxStage('why?', ['because', 'because(2)', 'because(3)'])
     ]
+    const allDone = stages.reduce((previousValue, currentValue) => previousValue && currentValue.isFilled, true)
     return <div className={styles.wrapper}>
         <div className={styles.container}>
             <TimerComponent time={time}/>
-            <div className={styles.buttonRow}>
+            <div className={styles.button_row}>
                 {stages.map((value, index) =>
                     <Button
                         key={index}
@@ -43,11 +47,19 @@ export default function Test() {
                         {index + 1}
                     </Button>
                 )}
+                <Button
+                    onClick={sendAnswers}
+                    selected={-1 === selectedIndex}
+                    done style={{display: allDone? "inline-block" : "none"}}>
+                    Отправить
+                </Button>
             </div>
             <MainFrame stage={stages[selectedIndex]}
                        index={selectedIndex}
                        setIndex={setAndUpdateIndex}
-                       isLast={selectedIndex===stages.length - 1}/>
+                       isLast={selectedIndex===stages.length - 1}
+                       allDone={allDone}
+                       sendAnswers={sendAnswers}/>
         </div>
     </div>
 }

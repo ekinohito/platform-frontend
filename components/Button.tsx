@@ -11,7 +11,7 @@ export default function Button({children,
                                }) {
     return <button
         onClick={onClick}
-        className={`${styles.button} ${done?styles.done:''} ${selected?styles.selected:''} ${circle?styles.circle:''}`}
+        className={`${styles.button} ${done?styles.done:''} ${selected?styles.selected:''} ${circle?styles.circle:''} ${disabled?styles.disabled:''}`}
         disabled={disabled}
         {...attrs}
     >
