@@ -2,6 +2,7 @@ import React from 'react';
 import {Question, VariantQuestion} from "../../types/question";
 import {useQuestions} from "../../context/questionsContext";
 import QuestionVariant from "./QuestionVariant";
+import {v4} from 'uuid';
 
 export default function QuestionInput({question}: {question: Question}) {
     const {setChecked} = useQuestions();
@@ -13,10 +14,10 @@ export default function QuestionInput({question}: {question: Question}) {
                 {
                     variant.variants.map((vrt, index) =>
                         <QuestionVariant
-                            checked={index == variant.checked}
+                            checked={index === variant.checked}
                             answer={vrt}
-                            onChange={(e) => setChecked(index)}
-                            key={index}
+                            onClick={() => setChecked(index)}
+                            key={v4()}
                         />
                     )
                 }

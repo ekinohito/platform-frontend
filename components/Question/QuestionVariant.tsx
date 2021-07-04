@@ -3,18 +3,21 @@ import React from 'react';
 interface Props {
     checked: boolean,
     answer: string,
-    onChange: (e: React.FormEvent<HTMLInputElement>) => void
+    onClick: () => void
 }
 
-export default function QuestionVariant({checked, answer, onChange}: Props) {
+export default function QuestionVariant({checked, answer, onClick}: Props) {
     return (
-        <label className="">
-            <input type="radio" checked={checked} onChange={onChange}/>
+        <div
+            className="flex items-center cursor-pointer hover:opacity-75"
+            onClick={onClick}
+        >
+            <span className={`w-3.5 h-3.5 mr-3 rounded-full border ${checked ? 'bg-red-400':'border-black'}`}/>
             <span
-                className="text-black text-2xl font-mono ml-3"
+                className="text-black text-2xl font-mono"
             >
                 {answer}
             </span>
-        </label>
+        </div>
     )
 }

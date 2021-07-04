@@ -15,7 +15,7 @@ const initialQuestionsState: QuestionsState = {
             done: false,
             type: 'variant',
             variants: ['подОшва', 'избАлованный', 'непрАвы', 'дозвонИмся', 'оглянЁмся'],
-            checked: undefined
+
         }
     ]
 }
