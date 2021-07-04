@@ -1,4 +1,4 @@
-import {CheckboxQuestion, Question, TextboxQuestion} from "./types";
+import {VariantQuestion, Question, TextQuestion} from "../../types/question";
 
 interface QuestionsState {
     selectedQuestion: number,
@@ -7,7 +7,17 @@ interface QuestionsState {
 
 const initialQuestionsState: QuestionsState = {
     selectedQuestion: 0,
-    questions: null
+    questions: [
+        {
+            number: 1,
+            question: 'В одном из приведённых ниже слов допущена ошибка в' +
+                ' постановке ударения: НЕВЕРНО выделена буква, обозначающая ударный гласный звук. Выберете это слово.',
+            done: false,
+            type: 'variant',
+            variants: ['подОшва', 'избАлованный', 'непрАвы', 'дозвонИмся', 'оглянЁмся'],
+            checked: undefined
+        }
+    ]
 }
 
 type QuestionsAction =
@@ -27,10 +37,10 @@ const questionReducer = (state: QuestionsState=initialQuestionsState, action: Qu
                 ...state, selectedQuestion: action.payload
             }
         case "SET_CHECKED":
-            (state.questions[state.selectedQuestion] as CheckboxQuestion).checked = action.payload;
+            (state.questions[state.selectedQuestion] as VariantQuestion).checked = action.payload;
             return state;
         case "SET_TEXT":
-            (state.questions[state.selectedQuestion] as TextboxQuestion).answer = action.payload;
+            (state.questions[state.selectedQuestion] as TextQuestion).answer = action.payload;
             return state;
         default:
             return state;

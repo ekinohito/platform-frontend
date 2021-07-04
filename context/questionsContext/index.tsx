@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useReducer} from 'react';
 import questionReducer, {initialQuestionsState, QuestionsState} from "./reducer";
-import {Question, CheckboxQuestion, TextboxQuestion} from "./types";
+import {Question, VariantQuestion, TextQuestion} from "../../types/question";
 
 interface QuestionProviderValue {
     state: QuestionsState,
@@ -13,8 +13,6 @@ interface QuestionProviderValue {
 const QuestionsContext = createContext<QuestionProviderValue>(null);
 
 const useQuestions = () => useContext(QuestionsContext);
-
-
 
 const QuestionsProvider = ({children}) => {
     const [state, dispatch] = useReducer(questionReducer, initialQuestionsState);
@@ -34,4 +32,3 @@ const QuestionsProvider = ({children}) => {
 }
 
 export {QuestionsProvider, useQuestions};
-export type {Question, CheckboxQuestion, TextboxQuestion}
