@@ -9,7 +9,7 @@ export default function QuestionInput({question}: {question: Question}) {
 
     if (question.type == "variant") {
         return (
-            <div className="flex flex-col">
+            <div className="flex flex-col items-start">
                 {
                     question.variants.map((vrt, index) =>
                         <QuestionVariant

@@ -12,7 +12,7 @@ export default function QuestionVariant({checked, answer, onClick}: Props) {
             className="flex items-center cursor-pointer hover:opacity-75"
             onClick={onClick}
         >
-            <span className={`w-3.5 h-3.5 mr-3 rounded-full border ${checked ? 'bg-red-400':'border-black'}`}/>
+            <span className={`w-3.5 h-3.5 mr-3 rounded-full  ${checked ? 'bg-red-400':'bg-blue-200'}`}/>
             <span
                 className="text-black text-2xl font-mono"
             >
