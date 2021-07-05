@@ -36,12 +36,16 @@ const questionReducer = (state: QuestionsState=initialQuestionsState, action: Qu
             return {
                 ...state, selectedQuestion: action.payload
             }
-        case "SET_CHECKED":
-            (state.questions[state.selectedQuestion] as VariantQuestion).checked = action.payload;
-            return state;
-        case "SET_TEXT":
+        case "SET_CHECKED": {
+            const newState = Object.assign({}, state);
+            (newState.questions[newState.selectedQuestion] as VariantQuestion).checked = action.payload;
+            return newState;
+        }
+        case "SET_TEXT": {
+            const newState = Object.assign({}, state);
             (state.questions[state.selectedQuestion] as TextQuestion).answer = action.payload;
             return state;
+        }
         default:
             return state;
     }
