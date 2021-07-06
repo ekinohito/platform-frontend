@@ -6,7 +6,7 @@ interface QuestionsState {
 }
 
 const initialQuestionsState: QuestionsState = {
-    selectedQuestion: 0,
+    selectedQuestion: 1,
     questions: [
         {
             number: 1,
@@ -15,7 +15,25 @@ const initialQuestionsState: QuestionsState = {
             done: false,
             type: 'variant',
             variants: ['подОшва', 'избАлованный', 'непрАвы', 'дозвонИмся', 'оглянЁмся'],
-
+            completed: false
+        },
+        {
+            number: 2,
+            question: 'В одном из приведённых ниже слов допущена ошибка в' +
+                ' постановке ударения: НЕВЕРНО выделена буква, обозначающая ударный гласный звук. Выберете это слово.',
+            done: false,
+            type: 'variant',
+            variants: ['подОшва', 'избАлованный', 'непрАвы', 'дозвонИмся', 'оглянЁмся'],
+            completed: false
+        },
+        {
+            number: 3,
+            question: 'В одном из приведённых ниже слов допущена ошибка в' +
+                ' постановке ударения: НЕВЕРНО выделена буква, обозначающая ударный гласный звук. Выберете это слово.',
+            done: false,
+            type: 'variant',
+            variants: ['подОшва', 'избАлованный', 'непрАвы', 'дозвонИмся', 'оглянЁмся'],
+            completed: false
         }
     ]
 }
@@ -38,12 +56,14 @@ const questionReducer = (state: QuestionsState=initialQuestionsState, action: Qu
             }
         case "SET_CHECKED": {
             const newState = Object.assign({}, state);
-            (newState.questions[newState.selectedQuestion] as VariantQuestion).checked = action.payload;
+
+            (newState.questions[newState.selectedQuestion-1] as VariantQuestion).checked = action.payload;
+            (newState.questions[newState.selectedQuestion-1] as VariantQuestion).completed = true;
             return newState;
         }
         case "SET_TEXT": {
             const newState = Object.assign({}, state);
-            (state.questions[state.selectedQuestion] as TextQuestion).answer = action.payload;
+            (state.questions[state.selectedQuestion-1] as TextQuestion).answer = action.payload;
             return state;
         }
         default:

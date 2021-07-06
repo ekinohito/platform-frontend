@@ -6,7 +6,7 @@ import QuestionInput from "./QuestionInput";
 
 export default function Question() {
     const {state} = useQuestions();
-    const question = state?.questions[state.selectedQuestion];
+    const question = state?.questions[state.selectedQuestion-1];
 
     return (
         question

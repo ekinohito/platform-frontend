@@ -10,12 +10,12 @@ export default function QuestionsNavigation() {
             <TWRow className="mb-6">
                 <div className="flex justify-between col-start-6 col-span-2">
                     <NavigationButton
-                        onClick={() => setSelected(state.selectedQuestion + 1)}
-                        active={state.selectedQuestion !== 0}
+                        onClick={() => setSelected(state.selectedQuestion - 1)}
+                        active={state.selectedQuestion !== 1}
                     />
                     <NavigationButton
-                        onClick={() => setSelected(state.selectedQuestion - 1)}
-                        active={state.selectedQuestion !== state.questions.length - 1}
+                        onClick={() => setSelected(state.selectedQuestion + 1)}
+                        active={state.selectedQuestion !== state.questions.length}
                         reversed
                     />
 

@@ -7,7 +7,7 @@ interface TWRowProps {
 
 const TWRow = ({children, className}: TWRowProps) => {
     return (
-        <div className={`grid lg:grid-cols-12 gap-x-4 ${className ?? ''}`}>
+        <div className={`grid grid-cols-12 gap-x-4 ${className ?? ''}`}>
             {children}
         </div>
     )

@@ -2,7 +2,8 @@ interface IQuestion {
     question: string,
     done: boolean,
     number: number
-    type: "variant" | "text"
+    type: "variant" | "text",
+    completed: boolean
 }
 
 export interface VariantQuestion extends IQuestion {
