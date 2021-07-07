@@ -25,9 +25,6 @@ export default function QuestionsNavigation() {
 
                 </div>
             </TWRow>
-            <TWRow>
-                <div className="col-start-4 col-span-6 h-1.5 rounded-full bg-blue-600"/>
-            </TWRow>
         </div>
     )
 }

@@ -18,3 +18,39 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: Roboto;
+  font-weight: normal;
+  src: url("/fonts/Roboto-Regular.ttf")
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 500;
+  src: url("/fonts/Roboto-Medium.ttf")
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: bold;
+  src: url("/fonts/Roboto-Bold.ttf")
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-weight: normal;
+  src: url("/fonts/SourceCodePro-Regular.ttf")
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-weight: 500;
+  src: url("/fonts/SourceCodePro-Medium.ttf")
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-weight: bold;
+  src: url("/fonts/SourceCodePro-Bold.ttf")
+}

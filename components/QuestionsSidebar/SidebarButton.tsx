@@ -9,9 +9,9 @@ interface Props {
 
 export default function SidebarButton({number, active, completed, onClick}: Props) {
     let color;
-    if (active) color = 'bg-red-400';
-    else if (completed) color = 'bg-blue-600';
-    else color = 'bg-gray-400';
+    if (active) color = 'bg-red';
+    else if (completed) color = 'bg-blue-primary';
+    else color = 'bg-gray';
 
     return (
         <button

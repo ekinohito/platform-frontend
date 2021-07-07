@@ -3,7 +3,6 @@ interface QuestionPart {
     question: string,
     done: boolean,
     answer: string | number,
-    type: 'variant' | 'text'
 }
 
 export type VariantTestQuestion =
@@ -24,6 +23,10 @@ export type TextTestQuestion =
 
 type TestQuestion = VariantTestQuestion | TextTestQuestion;
 
-type TextQuestion = QuestionPart;
+type TextQuestion =
+    & QuestionPart
+    & {
+        type: ''
+    };
 
-export type Question = TestQuestion
+export type Question = TestQuestion | TextQuestion;

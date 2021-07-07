@@ -22,7 +22,7 @@ export default function NavigationButton({onClick, active, reversed}: Props) {
                     fillRule="evenodd"
                     clipRule="evenodd"
                     d="M33 4.16416L8.21081 28.9533L32.8825 53.625L28.8358 57.6717L3.8147e-06 28.8358L28.8358 0L33 4.16416Z"
-                    className={active ? 'fill-current text-blue-600' : 'fill-current text-gray-400'}
+                    className={active ? 'fill-current text-blue-primary' : 'fill-current text-gray'}
                 />
             </svg>
         </button>
