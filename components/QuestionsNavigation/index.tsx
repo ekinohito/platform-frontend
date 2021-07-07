@@ -1,21 +1,25 @@
 import React from 'react';
 import TWRow from "../tailwind/TWRow";
-import {useQuestions} from "../../context/questionsContext";
+import {useAppDispatch, useAppSelector} from "../../store";
+import {setQuestionSelected} from "../../reducers/exam";
 import NavigationButton from "./NavigationButton";
 
 export default function QuestionsNavigation() {
-    const {setSelected, state} = useQuestions();
+    const dispatch = useAppDispatch();
+    const selectedQuestion = useAppSelector<number>(state => state.exam.selectedQuestion);
+    const questionsLength = useAppSelector<number>(state => state.exam.questions.length);
+
     return (
         <div className="flex flex-col">
             <TWRow className="mb-6">
                 <div className="flex justify-between col-start-6 col-span-2">
                     <NavigationButton
-                        onClick={() => setSelected(state.selectedQuestion - 1)}
-                        active={state.selectedQuestion !== 1}
+                        onClick={() => dispatch(setQuestionSelected(selectedQuestion - 1))}
+                        active={selectedQuestion !== 1}
                     />
                     <NavigationButton
-                        onClick={() => setSelected(state.selectedQuestion + 1)}
-                        active={state.selectedQuestion !== state.questions.length}
+                        onClick={() => dispatch(setQuestionSelected(selectedQuestion + 1))}
+                        active={selectedQuestion !== questionsLength}
                         reversed
                     />
 

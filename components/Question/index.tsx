@@ -1,19 +1,19 @@
 import React from 'react';
-import {Question as TQuestion} from "../../types/question";
 import TWRow from "../tailwind/TWRow";
-import {useQuestions} from "../../context/questionsContext";
 import QuestionInput from "./QuestionInput";
+import {useAppSelector} from "../../store";
+import {Question as TypeQuestion} from "../../types/exam";
+
 
 export default function Question() {
-    const {state} = useQuestions();
-    const question = state?.questions[state.selectedQuestion-1];
+    const question = useAppSelector<TypeQuestion>(state => state.exam.questions[state.exam.selectedQuestion-1]);
 
     return (
         question
             ?
             <TWRow>
                 <div className="flex flex-col col-start-3 col-span-8 mb-6">
-                    <span className="text-blue-600 text-3xl mb-4 font-sans font-medium">
+                    <span className="text-blue-600 text-3xl mb-4 font-sans font-bold">
                         Задание {question.number}
                     </span>
                     <div className="text-black text-2xl font-mono mb-4">
