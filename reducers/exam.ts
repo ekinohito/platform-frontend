@@ -5,11 +5,13 @@ export const setQuestionsType = createAction<'test' | 'text'>('SET_QUESTIONS_TYP
 export const setQuestions = createAction<Question[]>('SET_QUESTIONS');
 export const setQuestionSelected = createAction<number>('SET_QUESTION_SELECTED');
 export const setAnswer = createAction<string | number>('SET_ANSWER');
+export const setToken = createAction<string>('SET_TOKEN')
 
 export interface ExamState {
     questionsType: 'test' | 'text',
     selectedQuestion: number,
-    questions: Question[]
+    questions: Question[],
+    token: string
 }
 
 const initialState: ExamState = {
@@ -48,8 +50,8 @@ const initialState: ExamState = {
             variants: ['подОшва', 'избАлованный', 'непрАвы', 'дозвонИмся', 'оглянЁмся'],
             answer: undefined
         },
-
-    ]
+    ],
+    token: 'bruh'
 }
 
 const exam = createSlice({
@@ -70,6 +72,9 @@ const exam = createSlice({
             .addCase(setAnswer, (state, action) => {
                 state.questions[state.selectedQuestion-1].answer = action.payload;
             })
+            .addCase(setToken, ((state, action) => {
+                state.token = action.payload
+            }))
     }
 })
 
