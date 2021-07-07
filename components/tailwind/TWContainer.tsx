@@ -2,7 +2,7 @@ import React from "react";
 
 const TWContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => {
     return (
-        <div className={`xl:container lg:px-10 ${className ?? ''}`}>
+        <div className={`xl:container lg:px-10 md:px-6 sm:px-4 ${className ?? ''}`}>
             {children}
         </div>
     )

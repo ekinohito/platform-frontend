@@ -1,7 +1,6 @@
 interface QuestionPart {
     number: number
     question: string,
-    done: boolean,
     answer: string | number,
 }
 

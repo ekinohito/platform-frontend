@@ -15,10 +15,10 @@ export default function SidebarButton({number, active, completed, onClick}: Prop
 
     return (
         <button
-            className={`h-16 w-16 rounded-xl flex justify-center items-center ${color} my-2`}
+            className={`h-12 w-12 rounded-lg flex justify-center items-center ${color} m-1`}
             onClick={onClick}
         >
-            <span className="font-sans text-3xl text-white">{number}</span>
+            <span className="font-sans text-2xl text-white">{number}</span>
         </button>
     )
 }
