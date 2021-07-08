@@ -6,11 +6,13 @@ export const setQuestions = createAction<Question[]>('SET_QUESTIONS');
 export const setQuestionSelected = createAction<number>('SET_QUESTION_SELECTED');
 export const setAnswer = createAction<string | number>('SET_ANSWER');
 export const setToken = createAction<string>('SET_TOKEN')
+export const setAnswers = createAction<{ answer: string, right: boolean }[]>('SET_ANSWERS')
 
 export interface ExamState {
     questionsType: 'test' | 'text',
     selectedQuestion: number,
     questions: Question[],
+    answers: { answer: string, right: boolean }[],
     token: string
 }
 
@@ -51,7 +53,8 @@ const initialState: ExamState = {
             answer: undefined
         },
     ],
-    token: undefined
+    token: undefined,
+    answers: undefined
 }
 
 const exam = createSlice({
@@ -64,6 +67,7 @@ const exam = createSlice({
                 state.questionsType = action.payload;
             })
             .addCase(setQuestions, (state, action) => {
+                localStorage.setItem('questions', JSON.stringify(action.payload))
                 state.questions = action.payload;
             })
             .addCase(setQuestionSelected, (state, action) => {
@@ -71,10 +75,14 @@ const exam = createSlice({
             })
             .addCase(setAnswer, (state, action) => {
                 state.questions[state.selectedQuestion-1].answer = action.payload;
+                localStorage.setItem('questions', JSON.stringify(state.questions))
             })
             .addCase(setToken, ((state, action) => {
                 localStorage.setItem('token', action.payload)
                 state.token = action.payload
+            }))
+            .addCase(setAnswers, ((state, action) => {
+                state.answers = action.payload
             }))
     }
 })
