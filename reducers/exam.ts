@@ -51,7 +51,7 @@ const initialState: ExamState = {
             answer: undefined
         },
     ],
-    token: 'bruh'
+    token: undefined
 }
 
 const exam = createSlice({
@@ -73,6 +73,7 @@ const exam = createSlice({
                 state.questions[state.selectedQuestion-1].answer = action.payload;
             })
             .addCase(setToken, ((state, action) => {
+                localStorage.setItem('token', action.payload)
                 state.token = action.payload
             }))
     }
