@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }) {
       <Provider store={store}>
           <LocalStorage>
               <Component {...pageProps} />
+              <div className="bg-red bg-blue-primary bg-gray bg-blue-dark bg-blue-secondary invisible"/>
           </LocalStorage>
       </Provider>
       )
