@@ -17,7 +17,7 @@ export default function Question() {
                         Задание {question.number}
                     </span>
                     <div className="text-black text-2xl font-mono mb-4">
-                        {question.question}
+                        <p dangerouslySetInnerHTML={{__html: question.question}}/>
                     </div>
                     <QuestionInput question={question}/>
                 </div>
